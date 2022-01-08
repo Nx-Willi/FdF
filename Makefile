@@ -6,7 +6,7 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/08 23:00:18 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/08 23:15:15 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ PRINTFFLAG	= -lftprintf
 PRINTF		= -L${PATHPRINTF}
 
 PATHMLX		= ${PATHLIBS}./minilibx-linux/
-MLXFLAGS	= -lXext -lX11
+MLXFLAGS	= -lmlx -lXext -lX11
 MLX			= -L${PATHMLX}
 
 LIBSFLAGS	= ${LIBFTFLAG} ${PRINTFFLAG} ${MLXFLAGS}
