@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:08:39 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 19:37:42 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/08 19:47:17 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ int	main(int args, char **argv)
 {
 	if (args != 2)
 		return (1);
-	ft_putstr(ft_atoi(argv[1]));
+	ft_putstr(argv[1]);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/08 19:35:34 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/08 19:55:44 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ RM			= rm -rf
 PATHLIBS	= libs/
 
 PATHLIBFT	= ${PATHLIBS}libft/
+LIBFTFLAG	= -lft
 LIBFT		= -L${PATHLIBFT}
 
 PATHMLX		= ${PATHLIBS}minilibx-linux/
@@ -33,7 +34,7 @@ MLX			= -L${PATHMLX}
 ${NAME}:	${OBJS}
 				make -C ${PATHLIBFT}
 				make -C ${PATHMLX}
-				${CC} ${LIBFT} ${MLX} ${OBJS} ${MLXFLAGS} -o ${NAME}
+				${CC} ${LIBFT} ${MLX} ${OBJS} ${MLXFLAGS} ${LIBFTFLAG} -o ${NAME}
 
 all:		${NAME}
 
@@ -44,7 +45,6 @@ clean:
 
 fclean:		clean
 				make -C ${PATHLIBFT} fclean
-				make -C ${PATHMLX} fclean
 				${RM} ${NAME}
 
 re:			fclean all
