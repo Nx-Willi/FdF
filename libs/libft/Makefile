@@ -6,29 +6,35 @@
 #    By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/28 08:31:56 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/08 17:50:15 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/08 19:05:01 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
 NAME		= libft.a
 
-SRCS 		= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
-			ft_isprint.c ft_toupper.c ft_tolower.c ft_strncmp.c \
-			ft_strdup.c ft_strchr.c ft_strrchr.c ft_strnstr.c ft_substr.c \
-			ft_strjoin.c ft_strtrim.c ft_split.c ft_strmapi.c \
-			ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_striteri.c \
+SRCS 		= srcs/str/ft_isalpha.c srcs/str/ft_isdigit.c srcs/str/ft_isalnum.c \
+			srcs/str/ft_isascii.c srcs/str/ft_isprint.c srcs/str/ft_toupper.c \
+			srcs/str/ft_tolower.c srcs/str/ft_strncmp.c srcs/str/ft_strdup.c \
+			srcs/str/ft_strchr.c srcs/str/ft_strrchr.c srcs/str/ft_strnstr.c \
+			srcs/str/ft_substr.c srcs/str/ft_strjoin.c srcs/str/ft_strtrim.c \
+			srcs/str/ft_split.c srcs/str/ft_strmapi.c srcs/str/ft_strlen.c \
+			srcs/str/ft_strlcpy.c srcs/str/ft_strlcat.c srcs/str/ft_striteri.c \
 			\
-			ft_memcmp.c ft_bzero.c ft_memset.c ft_memcpy.c ft_memmove.c \
-			ft_memchr.c ft_calloc.c \
+			srcs/mem/ft_memcmp.c srcs/mem/ft_bzero.c srcs/mem/ft_memset.c \
+			srcs/mem/ft_memcpy.c srcs/mem/ft_memmove.c srcs/mem/ft_memchr.c \
+			srcs/mem/ft_calloc.c \
 			\
-			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+			srcs/file/ft_putchar_fd.c srcs/file/ft_putstr_fd.c \
+			srcs/file/ft_putendl_fd.c srcs/file/ft_putnbr_fd.c \
 			\
-			ft_lstsize.c ft_lstadd_back.c ft_lstadd_front.c ft_lstiter.c \
-			ft_lstdelone.c ft_lstclear.c ft_lstlast.c ft_lstnew.c \
-			ft_lstmap.c \
+			srcs/lst/ft_lstsize.c srcs/lst/ft_lstadd_back.c \
+			srcs/lst/ft_lstadd_front.c srcs/lst/ft_lstiter.c \
+			srcs/lst/ft_lstdelone.c srcs/lst/ft_lstclear.c srcs/lst/ft_lstlast.c \
+			srcs/lst/ft_lstnew.c srcs/lst/ft_lstmap.c \
 			\
-			ft_atoi.c ft_itoa.c
+			srcs/othr/ft_atoi.c srcs/othr/ft_itoa.c \
+			\
+			get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 OBJS		= ${SRCS:.c=.o}
 
@@ -37,7 +43,7 @@ RM			= rm -rf
 CFLAGS		= -Wall -Wextra -Werror
 
 .c.o:
-				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 				ar -rc ${NAME} ${OBJS}
@@ -50,6 +56,6 @@ clean:
 fclean:		clean
 				${RM} ${NAME}
 
-re:		fclean all
+re:			fclean all
 
-.PHONY:			all clean fclean re
+.PHONY:		all clean fclean re
