@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
-/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
+/*   Created: 2022/01/08 18:08:39 by wdebotte          #+#    #+#             */
+/*   Updated: 2022/01/08 18:10:49 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_int.h"
+#include "libft/libft.h"
 
-int	mlx_destroy_display(t_xvar *xvar)
+int	main(int args, char **argv)
 {
-	XCloseDisplay(xvar->display);
+	if (args != 2)
+		return (1);
+	ft_putstr(ft_atoi(argv[1]));
+	return (0);
 }
