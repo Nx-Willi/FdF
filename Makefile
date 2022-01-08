@@ -6,7 +6,7 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/08 19:55:44 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/08 20:12:54 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,9 @@ LIBFT		= -L${PATHLIBFT}
 PATHMLX		= ${PATHLIBS}minilibx-linux/
 MLXFLAGS	= -lmlx -lXext -lX11
 MLX			= -L${PATHMLX}
+
+.c.o:
+				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 				make -C ${PATHLIBFT}
