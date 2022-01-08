@@ -6,14 +6,14 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:26:38 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 22:00:59 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/08 22:42:11 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/libft.h"
 
 //ext must be preceded by '.'
-int	ft_get_ext(const char *file, const char *ext)
+int	is_ext_correct(const char *file, const char *ext)
 {
 	size_t	i;
 	size_t	len_ext;

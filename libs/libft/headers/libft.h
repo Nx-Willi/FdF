@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:33:55 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 19:40:27 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/08 22:41:52 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+int		is_ext_correct(const char *file, const char *ext);
 
 //----- List Stock -----
 

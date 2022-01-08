@@ -6,7 +6,7 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/08 20:45:35 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/08 22:45:47 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,24 +22,21 @@ CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
 MAKE		= make -C
 
-PATHLIBS	= libs/
+PATHLIBS	= ./libs/
 
-PATHLIBFT	= ${PATHLIBS}libft/
+PATHLIBFT	= ${PATHLIBS}./libft/
 LIBFTFLAG	= -lft
 LIBFT		= -L${PATHLIBFT}
 
-PATHPRINTF	= ${PATHLIBS}ft_printf/
+PATHPRINTF	= ${PATHLIBS}./ft_printf/
 PRINTFFLAG	= -lftprintf
 PRINTF		= -L${PATHPRINTF}
 
-PATHMLX		= ${PATHLIBS}minilibx-linux/
+PATHMLX		= ${PATHLIBS}./minilibx-linux/
 MLXFLAGS	= -lXext -lX11
 MLX			= -L${PATHMLX}
 
 LIBSFLAGS	= ${LIBFTFLAG} ${PRINTFFLAG} ${MLXFLAGS}
-
-.c.o:
-				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
 				${MAKE} ${PATHLIBFT}
