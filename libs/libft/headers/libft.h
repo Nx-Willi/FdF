@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:33:55 by wdebotte          #+#    #+#             */
-/*   Updated: 2021/12/08 08:57:53 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/08 19:40:27 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	ft_putchar(char c);
+void	ft_putstr(const char *str);
 
 //----- Memory Stock -----
 

@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 18:08:39 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 19:37:42 by wdebotte         ###   ########.fr       */
+/*   Created: 2022/01/08 19:41:17 by wdebotte          #+#    #+#             */
+/*   Updated: 2022/01/08 19:44:44 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libs/libft/headers/libft.h"
+#include "../../headers/libft.h"
 
-int	main(int args, char **argv)
+void	ft_putchar(char c)
 {
-	if (args != 2)
-		return (1);
-	ft_putstr(ft_atoi(argv[1]));
-	return (0);
+	write(1, &c, 1);
 }
