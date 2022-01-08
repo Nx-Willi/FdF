@@ -6,7 +6,7 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/08 20:35:44 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/08 20:45:35 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ ${NAME}:	${OBJS}
 				${MAKE} ${PATHLIBFT}
 				${MAKE} ${PATHPRINTF}
 				${MAKE} ${PATHMLX}
-				${CC} ${LIBFT} ${PRINTF} ${MLX} ${OBJS} ${LIBSFLAG} -o ${NAME}
+				${CC} ${LIBFT} ${PRINTF} ${MLX} ${OBJS} ${LIBSFLAGS} -o ${NAME}
 
 all:		${NAME}
 

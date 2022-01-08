@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 18:08:39 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 20:48:50 by wdebotte         ###   ########.fr       */
+/*   Created: 2022/01/08 20:41:09 by wdebotte          #+#    #+#             */
+/*   Updated: 2022/01/08 20:57:39 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libs/ft_printf/ft_printf.h"
-#include "../headers/fdf.h"
+#ifndef FDF_H
+# define FDF_H
 
-int	main(int args, char **argv)
-{
-	if (args != 2)
-	{
-		ft_printf(ERROR, "Command usage : ./fdf \"path_to_map.fdf\"");
-		return (1);
-	}
-	ft_printf("%s\n", argv[1]);
-	return (0);
-}
+# define ERROR "##########~\n# AN ERROR OCCURED !\n#\n# %s\n##########~\n"
+
+#endif
