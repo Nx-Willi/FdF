@@ -8,7 +8,7 @@ CC		= clang
 RM		= rm -rf
 CFLAGS		= -Wall -Wextra -Werror
 
-PATHMLX		= ../minilibx-linux/
+PATHMLX		= ../libs/minilibx-linux/
 MLXFLAGS	= -lmlx -lXext -lX11
 
 ${NAME}:	${OBJS}
