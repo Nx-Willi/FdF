@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:26:38 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 22:42:11 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/08 22:54:11 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_ext_correct(const char *file, const char *ext)
 	size_t	len_ext;
 
 	i = ft_strlen(file) - 1;
-	if (file == NULL|| ext == NULL || i == 0)
+	if (file == NULL || ext == NULL || i == 0)
 		return (0);
 	while (file[i] && file[i] != '.' && i > 0)
 		i--;

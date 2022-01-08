@@ -6,13 +6,13 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/08 22:45:47 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/08 23:00:18 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= fdf
 
-SRCS		= srcs/main.c
+SRCS		= srcs/fdf.c
 
 OBJS		= ${SRCS:.c=.o}
 
