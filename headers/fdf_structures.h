@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   fdf_structures.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 20:41:09 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/10 21:14:38 by wdebotte         ###   ########.fr       */
+/*   Created: 2022/01/10 17:54:14 by wdebotte          #+#    #+#             */
+/*   Updated: 2022/01/10 20:12:30 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef FDF_STRUCTURES_H
+# define FDF_STRUCTURES_H
 
-# define STR_ERROR "##########~\n# AN ERROR OCCURED !\n#\n# %s\n##########~\n"
-# define INT_ERROR 404
-
-# include "../libs/libft/headers/libft.h"
-# include "../libs/ft_printf/ft_printf.h"
-# include "../libs/minilibx-linux/mlx.h"
-# include "fdf_structures.h"
-# include <stdio.h>
-# include <stdlib.h>
-
-int	ft_puterror(const char *error)
+typedef struct s_img
 {
-	ft_printf(STR_ERROR, error);
-	return (INT_ERROR);
-}
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_img;
+
+typedef struct s_mlxenv
+{
+	void	*mlx;
+	void	*window;
+	int		win_width;
+	int		win_height;
+	t_img	*img;
+}	t_mlxenv;
 
 #endif

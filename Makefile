@@ -6,19 +6,21 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/09 00:25:52 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/10 21:36:42 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CYAN		= \033[96m
-GREEN		= \033[92m
+CYAN		= \033[0m\033[96m
+GREEN		= \033[1m\033[92m
 NORMAL		= \033[0m
 
 PREFIX		= \n${GREEN}=> ${CYAN}[${GREEN}FdF${CYAN}] 
 
 NAME		= fdf
 
-SRCS		= srcs/fdf.c
+SRCS		= ./srcs/fdf.c
+
+HEADERS		= ./headers/fdf.h ./headers/fdf_structures.h
 
 OBJS		= ${SRCS:.c=.o}
 
@@ -28,17 +30,21 @@ CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
 MAKE		= make -C
 
+NORM		= norminette
+FLAGC		= -R CheckForbiddenSourceHeader
+FLAGH		= -R CheckDefine
+
 PATHLIBS	= ./libs/
 
-PATHLIBFT	= ${PATHLIBS}./libft/
+PATHLIBFT	= ${PATHLIBS}libft/
 LIBFTFLAG	= -lft
 LIBFT		= -L${PATHLIBFT}
 
-PATHPRINTF	= ${PATHLIBS}./ft_printf/
+PATHPRINTF	= ${PATHLIBS}ft_printf/
 PRINTFFLAG	= -lftprintf
 PRINTF		= -L${PATHPRINTF}
 
-PATHMLX		= ${PATHLIBS}./minilibx-linux/
+PATHMLX		= ${PATHLIBS}minilibx-linux/
 MLXFLAGS	= -lmlx -lXext -lX11
 MLX			= -L${PATHMLX}
 
@@ -60,7 +66,7 @@ ${NAME}:	${OBJS}
 				${CC} ${LIBFT} ${PRINTF} ${MLX} ${OBJS} ${LIBSFLAGS} -o ${NAME}
 				@echo "${NORMAL}"
 
-all:		${NAME}
+all:		${NAME} norminette
 
 clean:
 				@echo "${PREFIX}Cleaning ${GREEN}Libft ${CYAN}..."
@@ -84,4 +90,11 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+norminette:
+				@echo "${PREFIX}Checking norminette for ${GREEN}.c ${CYAN}files ..."
+				${NORM} ${FLAGC} ${SRCS}
+				@echo "${PREFIX}Checking norminette for ${GREEN}.h ${CYAN}files ..."
+				${NORM} ${FLAGH} ${HEADERS}
+				@echo "${NORMAL}"
+
+.PHONY:		all clean fclean re norminette
