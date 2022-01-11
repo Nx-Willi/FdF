@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:41:09 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/10 21:14:38 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:30:37 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # define INT_ERROR 404
 
 # include "../libs/libft/headers/libft.h"
-# include "../libs/ft_printf/ft_printf.h"
 # include "../libs/minilibx-linux/mlx.h"
 # include "fdf_structures.h"
 # include <stdio.h>

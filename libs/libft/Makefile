@@ -6,9 +6,14 @@
 #    By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/28 08:31:56 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/08 22:03:11 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/11 11:21:31 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+CYAN		= \033[0m\033[96m
+GREEN		= \033[1m\033[92m
+
+PREFIX		= \n${GREEN}=> ${CYAN}[${GREEN}Libft${CYAN}]
 
 NAME		= libft.a
 
@@ -36,28 +41,63 @@ SRCS 		= srcs/str/ft_isalpha.c srcs/str/ft_isdigit.c srcs/str/ft_isalnum.c \
 			\
 			srcs/othr/ft_atoi.c srcs/othr/ft_itoa.c \
 			\
-			get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+			srcs/get_next_line/get_next_line.c srcs/get_next_line/get_next_line_utils.c
 
 OBJS		= ${SRCS:.c=.o}
 
+HEADERS		= headers/get_next_line.h headers/libft.h
+
 CC			= clang
-RM			= rm -rf
 CFLAGS		= -Wall -Wextra -Werror
 
+RM			= rm -rf
+
+NORM		= norminette
+FLAGC		= -R CheckForbiddenSourceHeader
+FLAGH		= -R CheckDefine
+
+MAKE		= make -C
+
+PATHLIBS	= libs/
+
+PATHPRINTF	= ${PATHLIBS}ft_printf/
+PRINTFLIB	= ${PATHPRINTF}libftprintf.a
+
+all:		strcompile ${NAME} norminette
+
+strcompile:
+				@echo "${PREFIX} Compiling all ${GREEN}.c ${CYAN}to ${GREEN}.o ${CYAN}..."
+
 .c.o:
-			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	${OBJS}
-				ar -rc ${NAME} ${OBJS}
-
-all:		${NAME}
+				@echo "${PREFIX} Calling ${GREEN}Printf ${CYAN}library ..."
+				${MAKE} ${PATHPRINTF}
+				@echo "${PREFIX} Making ${GREEN}${NAME} ${CYAN}library ..."
+				ar -rc ${NAME} ${PRINTFLIB} ${OBJS}
 
 clean:
+				@echo "${PREFIX} Calling ${GREEN}Printf ${CYAN}clean ..."
+				${MAKE} ${PATHPRINTF} clean
+				@echo "${PREFIX} Cleaning ${GREEN}Libft ${CYAN}..."
 				${RM} ${OBJS}
 
 fclean:		clean
+				@echo "${PREFIX} Calling ${GREEN}Printf ${CYAN}fclean ..."
+				${MAKE} ${PATHPRINTF} fclean
+				@echo "${PREFIX} Removing ${GREEN}${NAME} ${CYAN}library ..."
 				${RM} ${NAME}
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+norminette:
+				@echo "${PREFIX} Calling ${GREEN}Printf ${CYAN}norminette ..."
+				${MAKE} ${PATHPRINTF} norminette
+				@echo "${PREFIX} Checking norminette for ${GREEN}.c ${CYAN}files ..."
+				${NORM} ${FLAGC} ${SRCS}
+				${COLORRESET}
+				@echo "${PREFIX} Checking norminette for ${GREEN}.h ${CYAN}files ..."
+				${NORM} ${FLAGH} ${HEADERS}
+
+.PHONY:		all clean fclean re norminette

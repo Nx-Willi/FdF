@@ -6,11 +6,11 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:34:04 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 18:37:56 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/11 10:57:31 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/get_next_line.h"
+#include "../../headers/get_next_line.h"
 
 char	*get_line(char *buffer)
 {

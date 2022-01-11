@@ -6,11 +6,11 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 09:32:55 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 18:38:18 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/11 10:57:38 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/get_next_line.h"
+#include "../../headers/get_next_line.h"
 
 int	ft_strlen(char *str)
 {
