@@ -6,7 +6,7 @@
 #    By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/28 08:31:56 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/11 11:21:31 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/11 11:59:52 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,20 +32,18 @@ SRCS 		= srcs/str/ft_isalpha.c srcs/str/ft_isdigit.c srcs/str/ft_isalnum.c \
 			\
 			srcs/file/ft_putchar_fd.c srcs/file/ft_putstr_fd.c \
 			srcs/file/ft_putendl_fd.c srcs/file/ft_putnbr_fd.c \
-			srcs/file/is_ext_correct.c \
+			srcs/file/is_ext_correct.c srcs/file/get_next_line.c \
 			\
 			srcs/lst/ft_lstsize.c srcs/lst/ft_lstadd_back.c \
 			srcs/lst/ft_lstadd_front.c srcs/lst/ft_lstiter.c \
 			srcs/lst/ft_lstdelone.c srcs/lst/ft_lstclear.c srcs/lst/ft_lstlast.c \
 			srcs/lst/ft_lstnew.c srcs/lst/ft_lstmap.c \
 			\
-			srcs/othr/ft_atoi.c srcs/othr/ft_itoa.c \
-			\
-			srcs/get_next_line/get_next_line.c srcs/get_next_line/get_next_line_utils.c
+			srcs/othr/ft_atoi.c srcs/othr/ft_itoa.c
 
 OBJS		= ${SRCS:.c=.o}
 
-HEADERS		= headers/get_next_line.h headers/libft.h
+HEADERS		= headers/libft.h
 
 CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
@@ -96,7 +94,6 @@ norminette:
 				${MAKE} ${PATHPRINTF} norminette
 				@echo "${PREFIX} Checking norminette for ${GREEN}.c ${CYAN}files ..."
 				${NORM} ${FLAGC} ${SRCS}
-				${COLORRESET}
 				@echo "${PREFIX} Checking norminette for ${GREEN}.h ${CYAN}files ..."
 				${NORM} ${FLAGH} ${HEADERS}
 

@@ -6,7 +6,7 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/11 11:29:59 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/11 11:44:52 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ PATHMLX		= ${PATHLIBS}minilibx-linux/
 MLXFLAGS	= -lmlx -lXext -lX11
 MLX			= -L${PATHMLX}
 
-LIBSFLAGS	= ${LIBFTFLAG} ${PRINTFFLAG} ${MLXFLAGS}
+LIBSFLAGS	= ${LIBFTFLAG} ${MLXFLAGS}
 
 .c.o:
 				@echo "${PREFIX}Compiling all ${GREEN}.c ${CYAN}files to ${GREEN}.o ${CYAN}..."
@@ -55,7 +55,7 @@ ${NAME}:	${OBJS}
 				@echo "${PREFIX}Compiling ${GREEN}Minilibx ${CYAN}..."
 				${MAKE} ${PATHMLX}
 				@echo "${PREFIX}Compiling ${GREEN}FdF Program ${CYAN}..."
-				${CC} ${LIBFT} ${PRINTF} ${MLX} ${OBJS} ${LIBSFLAGS} -o ${NAME}
+				${CC} ${LIBFT} ${MLX} ${OBJS} ${LIBSFLAGS} -o ${NAME}
 
 all:		${NAME} norminette
 

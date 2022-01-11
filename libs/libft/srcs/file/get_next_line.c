@@ -6,11 +6,42 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:34:04 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/11 10:57:31 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/11 11:59:11 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/get_next_line.h"
+#include "../../headers/libft.h"
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 10
+#endif
+
+char	*ft_gnl_strjoin(char *s1, char *s2)
+{
+	char	*buffer;
+	int		i;
+	int		n;
+
+	if (s1 == NULL)
+	{
+		s1 = malloc(sizeof(char));
+		s1[0] = '\0';
+	}
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	buffer = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (buffer == NULL)
+		return (NULL);
+	i = -1;
+	n = -1;
+	while (s1[++i] != '\0')
+		buffer[i] = s1[i];
+	while (s2[++n] != '\0')
+		buffer[i + n] = s2[n];
+	buffer[i + n] = '\0';
+	free(s1);
+	return (buffer);
+}
 
 char	*get_line(char *buffer)
 {
@@ -84,7 +115,7 @@ char	*get_read(int fd, char *buffer)
 			return (NULL);
 		}
 		read_line[bytes] = '\0';
-		buffer = ft_strjoin(buffer, read_line);
+		buffer = ft_gnl_strjoin(buffer, read_line);
 	}
 	free(read_line);
 	return (buffer);
