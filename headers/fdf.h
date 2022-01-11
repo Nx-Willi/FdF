@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:41:09 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/11 11:30:37 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/11 15:06:18 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,9 @@
 # include "../libs/libft/headers/libft.h"
 # include "../libs/minilibx-linux/mlx.h"
 # include "fdf_structures.h"
-# include <stdio.h>
-# include <stdlib.h>
+# include <unistd.h>
 
-int	ft_puterror(const char *error)
-{
-	ft_printf(STR_ERROR, error);
-	return (INT_ERROR);
-}
+int	ft_puterror(const char *error);
+int	ft_checkmap(t_map *map, char *filename);
 
 #endif

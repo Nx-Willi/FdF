@@ -6,7 +6,7 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/11 13:43:58 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/11 15:04:03 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ PREFIX		= \n${GREEN}=> ${CYAN}[${GREEN}FdF${CYAN}]
 
 NAME		= fdf
 
-SRCS		= srcs/fdf.c
+SRCS		= srcs/fdf.c srcs/checkmap.c srcs/utils.c
 
 HEADERS		= headers/fdf.h headers/fdf_structures.h
 
@@ -52,7 +52,6 @@ LIBSFLAGS	= ${LIBFTFLAG} ${MLXFLAGS}
 all:		${NAME} norminette
 
 ${NAME}:	${OBJS}
-				@echo "${PREFIX}Compiling ${GREEN}Libft ${CYAN}..."
 				${MAKE} ${PATHLIBFT}
 				@echo "${PREFIX}Compiling ${GREEN}Minilibx ${CYAN}..."
 				${MAKE} ${PATHMLX}
@@ -60,7 +59,6 @@ ${NAME}:	${OBJS}
 				${CC} ${OBJS} ${LIBFT} ${MLX} ${LIBSFLAGS} -o ${NAME}
 
 clean:
-				@echo "${PREFIX}Cleaning ${GREEN}Libft ${CYAN}..."
 				${MAKE} ${PATHLIBFT} clean
 				@echo "${PREFIX}Cleaning ${GREEN}Minilibx ${CYAN}..."
 				${MAKE} ${PATHMLX} clean
@@ -68,7 +66,6 @@ clean:
 				${RM} ${OBJS}
 
 fclean:		clean
-				@echo "${PREFIX}Fcleaning ${GREEN}Libft ${CYAN}..."
 				${MAKE} ${PATHLIBFT} fclean
 				@echo "${PREFIX}Removing ${GREEN}${NAME} program ${CYAN}..."
 				${RM} ${NAME}
