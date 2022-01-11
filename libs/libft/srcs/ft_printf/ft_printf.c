@@ -6,11 +6,11 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 12:08:52 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 19:13:42 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/11 13:16:19 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../../headers/ft_printf.h"
 
 static int	is_valid_arg(char c)
 {
@@ -23,7 +23,7 @@ static int	is_valid_arg(char c)
 static int	ft_print_var(va_list args, char c)
 {
 	if (c == 'c')
-		ft_printf_putchar(va_arg(args, int));
+		ft_putchar(va_arg(args, int));
 	else if (c == 's')
 		return (ft_printf_putstr(va_arg(args, char *)));
 	else if (c == 'p')
@@ -40,7 +40,7 @@ static int	ft_print_var(va_list args, char c)
 	else if (c == 'X')
 		return (ft_printf_putnbr_hexa(va_arg(args, int), 1, 0));
 	else if (c == '%')
-		ft_printf_putchar('%');
+		ft_putchar('%');
 	return (1);
 }
 
@@ -60,7 +60,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			ft_printf_putchar(*str);
+			ft_putchar(*str);
 			char_count++;
 		}
 		str++;

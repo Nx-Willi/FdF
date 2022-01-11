@@ -6,16 +6,11 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 11:20:17 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 19:14:01 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/11 13:17:42 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
-
-void	ft_printf_putchar(char c)
-{
-	write(1, &c, 1);
-}
+#include "../../headers/ft_printf.h"
 
 int	ft_printf_strlen(char *str)
 {
@@ -36,7 +31,7 @@ int	ft_printf_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		ft_printf_putchar(str[i]);
+		ft_putchar(str[i]);
 		i++;
 	}
 	return (i);

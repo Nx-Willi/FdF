@@ -6,15 +6,11 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:34:04 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/11 11:59:11 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/11 13:39:26 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/libft.h"
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 10
-#endif
 
 char	*ft_gnl_strjoin(char *s1, char *s2)
 {
