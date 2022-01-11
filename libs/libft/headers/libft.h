@@ -6,13 +6,14 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 12:33:55 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/11 11:55:54 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/11 12:05:07 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "../libs/ft_printf/ft_printf.h"
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
