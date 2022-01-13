@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:54:14 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/12 13:46:39 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/13 15:32:15 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ typedef struct s_map
 {
 	int	max_x;
 	int	max_y;
+	int	pt_space;
 	int	**map;
 }	t_map;
 
