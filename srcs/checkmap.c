@@ -6,51 +6,102 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:59:38 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/11 15:40:16 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/13 12:54:40 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fdf.h"
-#include <fcntl.h>
 
-int	ft_fillmap(t_map *map, int fd)
+void	ft_readmap(t_map *map, int fd, int x, int y)
 {
 	char	*line;
 	char	**temp_map;
-	int		i;
-	int		n;
 
 	while (1)
 	{
 		line = get_next_line(fd);
-		if (line == NULL)
-			break ;
 		temp_map = ft_split(line, ' ');
 		if (temp_map == NULL)
-			break ;
-		i = 0;
-		n = 0;
-		while (temp_map[i])
 		{
-			map->map[i][n] = ft_atoi(temp_map[i]);
-			i++;
-			n++;
+			ft_freestrtab(temp_map, line);
+			break ;
 		}
-		map->max_x++;
+		x = 0;
+		while (temp_map[x] && temp_map[x][0] != '\n')
+			x++;
+		if (x > map->max_x)
+			map->max_x = x;
+		y++;
+		ft_freestrtab(temp_map, line);
 	}
-	return (1);
+	map->max_y = y;
+	close(fd);
+}
+
+int	**ft_mallocmap(int max_x, int max_y)
+{
+	int	y;
+	int	**map_tab;
+
+	map_tab = (int **)malloc(sizeof(int *) * max_y + 1);
+	if (map_tab == NULL)
+		return (NULL);
+	y = 0;
+	while (y < max_y)
+	{
+		map_tab[y] = (int *)malloc(sizeof(int) * max_x);
+		if (map_tab[y] == NULL)
+		{
+			ft_freeinttab(map_tab, max_y);
+			return (NULL);
+		}
+		y++;
+	}
+	return (map_tab);
+}
+
+void	ft_fillmap(t_map *map, char *filename, int x, int y)
+{
+	int		fd;
+	char	*line;
+	char	**temp_map;
+
+	fd = ft_openfile(filename);
+	while (1)
+	{
+		line = get_next_line(fd);
+		temp_map = ft_split(line, ' ');
+		if (temp_map == NULL)
+		{
+			ft_freestrtab(temp_map, line);
+			break ;
+		}
+		x = 0;
+		while (x < map->max_x)
+		{
+			if (temp_map[x] != NULL)
+				map->map[y][x] = ft_atoi(temp_map[x]);
+			x++;
+		}
+		ft_freestrtab(temp_map, line);
+		y++;
+	}
+	close(fd);
 }
 
 int	ft_checkmap(t_map *map, char *filename)
 {
 	int	fd;
 
-	fd = open(filename, O_RDONLY);
-	if (fd < 0 || (read(fd, "", 0) == -1))
+	fd = ft_openfile(filename);
+	if (fd < 0)
 		return (INT_ERROR);
 	map->max_x = 0;
 	map->max_y = 0;
-	ft_fillmap(map, fd);
-	printf("=> %i\n", map->max_x);
-	return (1);
+	ft_readmap(map, fd, 0, 0);
+	map->map = ft_mallocmap(map->max_x, map->max_y);
+	if (map->map == NULL)
+		return (INT_ERROR);
+	ft_fillmap(map, filename, 0, 0);
+	return (0);
 }
