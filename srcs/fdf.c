@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:08:39 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/13 15:38:29 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/13 21:21:03 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	main(int args, char **argv)
 	else
 		if (ft_init_mlx(&mlx, NULL, NULL) == INT_ERROR)
 			return (INT_ERROR);
+	ft_put_on_img(&mlx);
 	ft_printfmap(&mlx.map, mlx.map.max_x, mlx.map.max_y);
 	return (0);
 }

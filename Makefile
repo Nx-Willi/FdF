@@ -6,7 +6,7 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/13 11:12:33 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/13 21:35:18 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ PREFIX		= \n${GREEN}=> ${CYAN}[${GREEN}FdF${CYAN}]
 
 NAME		= fdf
 
-SRCS		= srcs/fdf.c srcs/checkmap.c srcs/utils.c
+SRCS		= srcs/fdf.c srcs/checkmap.c srcs/utils.c srcs/putimg.c
 
 HEADERS		= headers/fdf.h headers/fdf_structures.h
 
@@ -49,7 +49,7 @@ LIBSFLAGS	= ${LIBFTFLAG} ${MLXFLAGS}
 				@echo "${PREFIX}Compiling all ${GREEN}.c ${CYAN}files to ${GREEN}.o ${CYAN}..."
 				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-all:		${NAME} norminette
+all:		${NAME}
 
 ${NAME}:	${OBJS}
 				${MAKE} ${PATHLIBFT}

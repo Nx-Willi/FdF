@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:41:09 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/13 13:39:11 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/13 21:14:28 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 int		ft_puterror(const char *error);
 int		ft_openfile(char *filename);
 int		ft_checkmap(t_map *map, char *filename);
+int		ft_put_on_img(t_env *mlx);
 
 void	ft_freeinttab(int **tab, int max_y);
 void	ft_freestrtab(char **tab, char *line);

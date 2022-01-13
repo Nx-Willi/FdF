@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:02:20 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/13 12:41:16 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/13 21:34:59 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ int	ft_puterror(const char	*error)
 {
 	ft_printf(STR_ERROR, error);
 	return (INT_ERROR);
+}
+
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
 
 void	ft_freeinttab(int **tab, int max_y)
