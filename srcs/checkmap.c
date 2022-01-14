@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:59:38 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/13 12:54:40 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/14 13:43:03 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,19 +89,17 @@ void	ft_fillmap(t_map *map, char *filename, int x, int y)
 	close(fd);
 }
 
-int	ft_checkmap(t_map *map, char *filename)
+void	ft_checkmap(t_map *map, char *filename)
 {
 	int	fd;
 
 	fd = ft_openfile(filename);
-	if (fd < 0)
-		return (INT_ERROR);
 	map->max_x = 0;
 	map->max_y = 0;
 	ft_readmap(map, fd, 0, 0);
 	map->map = ft_mallocmap(map->max_x, map->max_y);
 	if (map->map == NULL)
-		return (INT_ERROR);
+		ft_exit("An error occured while mallocing the map !", NULL,
+			EXIT_FAILURE);
 	ft_fillmap(map, filename, 0, 0);
-	return (0);
 }
