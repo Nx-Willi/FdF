@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:02:20 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/14 15:34:45 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/16 19:39:03 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,19 @@ int	ft_exit(const char *error, t_env *mlx, int status)
 	return (status);
 }
 
-void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
+void	my_mlx_pixel_put(t_env *mlx, int x, int y, int color)
 {
 	char	*dst;
+	t_img	*img;
 
+	if (x > mlx->win_width || y > mlx->win_height)
+		return ;
+	img = &mlx->img;
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 
-void	ft_freeinttab(int **tab, int max_y)
+void	ft_freemap(t_point **tab, int max_y)
 {
 	int	y;
 

@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:59:38 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/14 13:43:03 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/16 18:50:28 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,30 @@ void	ft_readmap(t_map *map, int fd, int x, int y)
 		x = 0;
 		while (temp_map[x] && temp_map[x][0] != '\n')
 			x++;
-		if (x > map->max_x)
-			map->max_x = x;
+		if (x > map->max_columns)
+			map->max_columns = x;
 		y++;
 		ft_freestrtab(temp_map, line);
 	}
-	map->max_y = y;
+	map->max_lines = y;
 	close(fd);
 }
 
-int	**ft_mallocmap(int max_x, int max_y)
+t_point	**ft_mallocmap(int max_x, int max_y)
 {
-	int	y;
-	int	**map_tab;
+	int		y;
+	t_point	**map_tab;
 
-	map_tab = (int **)malloc(sizeof(int *) * max_y + 1);
+	map_tab = (t_point **)malloc(sizeof(t_point *) * max_y + 1);
 	if (map_tab == NULL)
 		return (NULL);
 	y = 0;
 	while (y < max_y)
 	{
-		map_tab[y] = (int *)malloc(sizeof(int) * max_x);
+		map_tab[y] = (t_point *)malloc(sizeof(t_point) * max_x);
 		if (map_tab[y] == NULL)
 		{
-			ft_freeinttab(map_tab, max_y);
+			ft_freemap(map_tab, max_y);
 			return (NULL);
 		}
 		y++;
@@ -77,10 +77,10 @@ void	ft_fillmap(t_map *map, char *filename, int x, int y)
 			break ;
 		}
 		x = 0;
-		while (x < map->max_x)
+		while (x < map->max_columns)
 		{
 			if (temp_map[x] != NULL)
-				map->map[y][x] = ft_atoi(temp_map[x]);
+				map->map[y][x].z = ft_atoi(temp_map[x]);
 			x++;
 		}
 		ft_freestrtab(temp_map, line);
@@ -94,10 +94,10 @@ void	ft_checkmap(t_map *map, char *filename)
 	int	fd;
 
 	fd = ft_openfile(filename);
-	map->max_x = 0;
-	map->max_y = 0;
+	map->max_columns = 0;
+	map->max_lines = 0;
 	ft_readmap(map, fd, 0, 0);
-	map->map = ft_mallocmap(map->max_x, map->max_y);
+	map->map = ft_mallocmap(map->max_columns, map->max_lines);
 	if (map->map == NULL)
 		ft_exit("An error occured while mallocing the map !", NULL,
 			EXIT_FAILURE);
