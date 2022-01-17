@@ -6,13 +6,13 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:59:38 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/16 18:50:28 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/17 17:43:29 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fdf.h"
 
-void	ft_readmap(t_map *map, int fd, int x, int y)
+static void	ft_readmap(t_map *map, int fd, int x, int y)
 {
 	char	*line;
 	char	**temp_map;
@@ -38,7 +38,7 @@ void	ft_readmap(t_map *map, int fd, int x, int y)
 	close(fd);
 }
 
-t_point	**ft_mallocmap(int max_x, int max_y)
+static t_point	**ft_mallocmap(int max_x, int max_y)
 {
 	int		y;
 	t_point	**map_tab;
@@ -60,7 +60,27 @@ t_point	**ft_mallocmap(int max_x, int max_y)
 	return (map_tab);
 }
 
-void	ft_fillmap(t_map *map, char *filename, int x, int y)
+static void	ft_set_data_to_struct(t_map *map, char *temp_map, int x, int y)
+{
+	char	**split_elems;
+
+	if (ft_strchr(temp_map, ','))
+	{
+		split_elems = ft_split(temp_map, ',');
+		map->map[y][x].z = ft_atoi(split_elems[0]);
+		map->map[y][x].color = malloc(sizeof(char *)
+				* (ft_strlen(split_elems[1] + 1)));
+		if (map->map[y][x].color == NULL)
+			return ;
+		ft_strlcpy(map->map[y][x].color, split_elems[1],
+			ft_strlen(split_elems[1]));
+		ft_freestrtab(split_elems, NULL);
+	}
+	else
+		map->map[y][x].z = ft_atoi(temp_map);
+}
+
+static void	ft_fillmap(t_map *map, char *filename, int x, int y)
 {
 	int		fd;
 	char	*line;
@@ -80,7 +100,7 @@ void	ft_fillmap(t_map *map, char *filename, int x, int y)
 		while (x < map->max_columns)
 		{
 			if (temp_map[x] != NULL)
-				map->map[y][x].z = ft_atoi(temp_map[x]);
+				ft_set_data_to_struct(map, temp_map[x], x, y);
 			x++;
 		}
 		ft_freestrtab(temp_map, line);

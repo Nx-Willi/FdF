@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:54:14 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/16 18:52:11 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/17 17:30:03 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 
 typedef struct s_point
 {
-	float	z;
-	int		color;
+	int		x1;
+	int		y1;
+	int		x2;
+	int		y2;
+	int		z;
+	char	*color;
 }	t_point;
 
 typedef struct s_map

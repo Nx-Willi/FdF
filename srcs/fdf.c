@@ -6,30 +6,13 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:08:39 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/16 20:01:55 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/17 17:42:53 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fdf.h"
 
-void	ft_printfmap(t_map *map, int max_x, int max_y)
-{
-	int		x;
-	int		y;
-
-	y = 0;
-	while (y < max_y)
-	{
-		x = 0;
-		while (x < max_x)
-			printf("%.0f ", map->map[y][x++].z);
-		printf("\n");
-		y++;
-	}
-	ft_freemap(map->map, max_y);
-}
-
-void	ft_init_mlx(t_env *mlx)
+static void	ft_init_mlx(t_env *mlx)
 {
 	mlx->mlx = mlx_init();
 	if (mlx->mlx == NULL)
@@ -58,6 +41,8 @@ int	main(int args, char **argv)
 	ft_init_mlx(&mlx);
 	ft_put_on_img(&mlx);
 	mlx_put_image_to_window(mlx.mlx, mlx.window, mlx.img.img, 0, 0);
+	mlx_key_hook(mlx.window, ft_hooks, &mlx);
+	mlx_hook(mlx.window, DESTROYNOTIFY, NOTIFYMASK, ft_close_window, &mlx);
 	mlx_loop(mlx.mlx);
 	return (ft_exit(NULL, &mlx, EXIT_SUCCESS));
 }

@@ -6,7 +6,7 @@
 #    By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/28 08:31:56 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/11 13:33:02 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/01/17 10:44:37 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ NORM		= norminette
 FLAGC		= -R CheckForbiddenSourceHeader
 FLAGH		= -R CheckDefine
 
-all:		strcompile ${NAME} norminette
+all:		strcompile ${NAME}
 
 strcompile:
 				@echo "${PREFIX} Compiling all ${GREEN}.c ${CYAN}to ${GREEN}.o ${CYAN}..."
