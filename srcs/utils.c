@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:02:20 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/16 19:39:03 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/18 15:09:37 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	my_mlx_pixel_put(t_env *mlx, int x, int y, int color)
 	char	*dst;
 	t_img	*img;
 
-	if (x > mlx->win_width || y > mlx->win_height)
+	if (x < 0 || y < 0 || x > mlx->win_width || y > mlx->win_height)
 		return ;
 	img = &mlx->img;
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));

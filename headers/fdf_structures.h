@@ -6,12 +6,24 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:54:14 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/17 17:30:03 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/18 17:51:03 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_STRUCTURES_H
 # define FDF_STRUCTURES_H
+
+typedef struct s_bres
+{
+	int	dx;
+	int	sx;
+	int	dy;
+	int	sy;
+	int	err;
+	int	e2;
+	int	x1_tmp;
+	int	y1_tmp;
+}	t_bres;
 
 typedef struct s_point
 {
@@ -21,6 +33,7 @@ typedef struct s_point
 	int		y2;
 	int		z;
 	char	*color;
+	t_bres	bres;
 }	t_point;
 
 typedef struct s_map

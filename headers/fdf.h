@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:41:09 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/17 17:45:24 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/18 14:22:34 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ int		ft_exit(const char *error, t_env *mlx, int status);
 int		ft_openfile(char *filename);
 int		ft_put_on_img(t_env *mlx);
 int		ft_hooks(int keycode, t_env *mlx);
-int		ft_close_window();
+int		ft_close_window(void);
 
 void	ft_freemap(t_point **tab, int max_y);
 void	ft_freestrtab(char **tab, char *line);
 void	ft_checkmap(t_map *map, char *filename);
 void	my_mlx_pixel_put(t_env *mlx, int x, int y, int color);
 void	ft_keyhooks(t_env *mlx);
-void	ft_draw_line(t_env *mlx, t_point points);
+void	ft_putline(t_env *mlx, t_point **points, int x, int y);
 
 #endif
