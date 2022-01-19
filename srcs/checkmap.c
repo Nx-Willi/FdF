@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:59:38 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/17 17:43:29 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/19 16:13:42 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,26 +60,6 @@ static t_point	**ft_mallocmap(int max_x, int max_y)
 	return (map_tab);
 }
 
-static void	ft_set_data_to_struct(t_map *map, char *temp_map, int x, int y)
-{
-	char	**split_elems;
-
-	if (ft_strchr(temp_map, ','))
-	{
-		split_elems = ft_split(temp_map, ',');
-		map->map[y][x].z = ft_atoi(split_elems[0]);
-		map->map[y][x].color = malloc(sizeof(char *)
-				* (ft_strlen(split_elems[1] + 1)));
-		if (map->map[y][x].color == NULL)
-			return ;
-		ft_strlcpy(map->map[y][x].color, split_elems[1],
-			ft_strlen(split_elems[1]));
-		ft_freestrtab(split_elems, NULL);
-	}
-	else
-		map->map[y][x].z = ft_atoi(temp_map);
-}
-
 static void	ft_fillmap(t_map *map, char *filename, int x, int y)
 {
 	int		fd;
@@ -100,7 +80,7 @@ static void	ft_fillmap(t_map *map, char *filename, int x, int y)
 		while (x < map->max_columns)
 		{
 			if (temp_map[x] != NULL)
-				ft_set_data_to_struct(map, temp_map[x], x, y);
+				map->map[y][x].z = ft_atoi(temp_map[x]);
 			x++;
 		}
 		ft_freestrtab(temp_map, line);

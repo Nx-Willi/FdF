@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 17:54:14 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/18 17:51:03 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/19 16:42:29 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_point
 	int		x2;
 	int		y2;
 	int		z;
-	char	*color;
 	t_bres	bres;
 }	t_point;
 
@@ -40,7 +39,7 @@ typedef struct s_map
 {
 	int		max_columns;
 	int		max_lines;
-	int		pt_space;
+	float	scale;
 	t_point	**map;
 }	t_map;
 

@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:08:39 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/17 17:42:53 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/19 16:45:53 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,18 @@ int	main(int args, char **argv)
 {
 	t_env	mlx;
 
-	if (args < 2 || args > 4)
-		return (ft_exit("Command usage : ./fdf \"path_to_map.fdf\"", NULL,
-				EXIT_FAILURE));
+	if (args < 2 || args > 3)
+		return (ft_exit("Command usage : ./fdf \"path_to_map.fdf\"\
+ (optionnal)\"scale\"", NULL, EXIT_FAILURE));
 	if (!is_ext_correct(argv[1], ".fdf"))
 		return (ft_exit("File extension doesn't match ! Must be \".fdf\"",
 				NULL, EXIT_FAILURE));
 	ft_checkmap(&mlx.map, argv[1]);
 	ft_init_mlx(&mlx);
+	if (argv[2] != NULL)
+		mlx.map.scale = (float)ft_atoi(argv[2]);
+	else
+		mlx.map.scale = 100.0;
 	ft_put_on_img(&mlx);
 	mlx_put_image_to_window(mlx.mlx, mlx.window, mlx.img.img, 0, 0);
 	mlx_key_hook(mlx.window, ft_hooks, &mlx);
