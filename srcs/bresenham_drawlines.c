@@ -6,12 +6,17 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 13:59:10 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/19 14:56:16 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:20:19 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/fdf.h"
 
+/*
+dx & dy refers to the distance between the first x & y and the x & y dest.
+sx & sy refers to the step direction of the line.
+e2 & err refers to the direction of the line for pixel print.
+*/
 static void	ft_define_bres_var(t_bres *bres, t_point **points, int x, int y)
 {
 	bres->dx = abs(points[y][x].x2 - points[y][x].x1);
