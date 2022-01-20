@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 09:58:03 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/20 16:45:44 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:32:53 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_close_window(t_env *mlx)
 {
-	return (ft_exit(NULL, mlx, EXIT_SUCCESS));
+	return (ft_exit(NULL, mlx, &mlx->map, EXIT_SUCCESS));
 }
 
 int	ft_hooks(int keycode, t_env *mlx)

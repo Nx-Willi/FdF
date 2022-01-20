@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 15:02:20 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/20 17:05:25 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:32:03 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_freestrtab(char **tab, char *line)
 }
 
 //status : EXIT_FAILURE = 1, EXIT_SUCCESS = 0
-int	ft_exit(const char *error, t_env *mlx, int status)
+int	ft_exit(const char *error, t_env *mlx, t_map *map, int status)
 {
 	if (status == EXIT_FAILURE)
 		ft_printf(STR_ERROR, error);
@@ -50,8 +50,8 @@ int	ft_exit(const char *error, t_env *mlx, int status)
 		mlx_destroy_display(mlx->mlx);
 		free(mlx->mlx);
 	}
-	if (mlx->map.map != NULL)
-		ft_freemap(mlx->map.map, mlx->map.max_lines);
+	if (map != NULL)
+		ft_freemap(map->map, map->max_lines);
 	exit(status);
 	return (status);
 }
@@ -74,6 +74,6 @@ int	ft_openfile(char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0 || read(fd, "", 0) == -1)
-		return (ft_exit("File doesn't exist !", NULL, EXIT_FAILURE));
+		return (ft_exit("File doesn't exist !", NULL, NULL, EXIT_FAILURE));
 	return (fd);
 }

@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:59:38 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/19 16:13:42 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:31:47 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,6 @@ void	ft_checkmap(t_map *map, char *filename)
 	map->map = ft_mallocmap(map->max_columns, map->max_lines);
 	if (map->map == NULL)
 		ft_exit("An error occured while mallocing the map !", NULL,
-			EXIT_FAILURE);
+			NULL, EXIT_FAILURE);
 	ft_fillmap(map, filename, 0, 0);
 }

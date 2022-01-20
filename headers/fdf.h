@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:41:09 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/20 17:05:35 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/20 17:28:13 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # include <fcntl.h>
 # include <math.h>
 
-int		ft_exit(const char *error, t_env *mlx, int status);
+int		ft_exit(const char *error, t_env *mlx, t_map *map, int status);
 int		ft_openfile(char *filename);
 int		ft_put_on_img(t_env *mlx);
 int		ft_hooks(int keycode, t_env *mlx);
