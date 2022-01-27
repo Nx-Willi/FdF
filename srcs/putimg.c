@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 21:16:19 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/19 16:58:48 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/01/27 13:28:40 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ static void	ft_get_points_space(t_env *mlx)
 	max_lines = map->max_lines;
 	if (max_columns >= max_lines)
 	{
-		while (ft_iso_x(mlx, map, max_columns - 1, 0) > mlx->win_width - 200)
+		while (ft_iso_x(mlx, map, max_columns - 1, 0) > mlx->win_width - 100)
 			map->scale -= 0.1;
 	}
 	else
 	{
-		while (ft_iso_x(mlx, map, max_columns - 1, 0) > mlx->win_width - 200)
+		while (ft_iso_x(mlx, map, max_columns - 1, 0) > mlx->win_width - 100)
 			map->scale -= 0.1;
 	}
 }
@@ -85,7 +85,11 @@ int	ft_put_on_img(t_env *mlx)
 			mlx->win_height + 10);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
-	ft_get_points_space(mlx);
+	if (mlx->map.scale == -1.0)
+	{
+		mlx->map.scale = 100.0;
+		ft_get_points_space(mlx);
+	}
 	ft_draw_map(mlx, &mlx->map);
 	return (0);
 }
