@@ -6,7 +6,7 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:59:38 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/04/05 13:07:07 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/04/05 13:51:23 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 static int	check_str(char *line, char **strs)
 {
-	int	i[2];
+	int	i;
+	int	n;
 
-	i[0] = 0;
-	while (strs[i[0]] != NULL)
+	i = 0;
+	while (strs[i])
 	{
-		i[1] = 0;
-		while (*strs[i[1]] != '\0')
+		n = 0;
+		while (strs[i][n] != '\0')
 		{
-			if (!ft_isdigit(*strs[i[1]]) || !is_whitespace(*strs[i[1]]))
+			if (strs[i][n] == ',')
+				break ;
+			if (!ft_isdigit(strs[i][n]) && !is_whitespace(strs[i][n])
+				&& strs[i][n] != '-')
 			{
 				ft_freestrtab(strs, line);
 				return (ft_exit("A letter has been found in the map !", NULL,
 						NULL, EXIT_FAILURE));
 			}
-			i[1]++;
+			n++;
 		}
-		i[0]++;
+		i++;
 	}
 	return (0);
 }
