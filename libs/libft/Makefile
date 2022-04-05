@@ -6,50 +6,101 @@
 #    By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/28 08:31:56 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/17 10:44:37 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/04/04 10:45:21 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CYAN		= \033[0m\033[96m
-GREEN		= \033[1m\033[92m
+################################################################################
+# => TEXT
+################################################################################
 
-PREFIX		= \n${GREEN}=> ${CYAN}[${GREEN}Libft${CYAN}]
+END		= \033[0m
+BOLD	= \033[1m
+
+RED		= \033[91m
+GREEN	= \033[92m
+YELLOW	= \033[93m
+
+################################################################################
+# => VARIABLES
+################################################################################
 
 NAME		= libft.a
 
-SRCS 		= srcs/str/ft_isalpha.c srcs/str/ft_isdigit.c srcs/str/ft_isalnum.c \
-			srcs/str/ft_isascii.c srcs/str/ft_isprint.c srcs/str/ft_toupper.c \
-			srcs/str/ft_tolower.c srcs/str/ft_strncmp.c srcs/str/ft_strdup.c \
-			srcs/str/ft_strchr.c srcs/str/ft_strrchr.c srcs/str/ft_strnstr.c \
-			srcs/str/ft_substr.c srcs/str/ft_strjoin.c srcs/str/ft_strtrim.c \
-			srcs/str/ft_split.c srcs/str/ft_strmapi.c srcs/str/ft_strlen.c \
-			srcs/str/ft_strlcpy.c srcs/str/ft_strlcat.c srcs/str/ft_striteri.c \
-			srcs/str/ft_putchar.c srcs/str/ft_putstr.c \
+PATHSRCS	= ./srcs/
+PATHHEADERS	= ./includes/
+PATHNULL	= /dev/null
+
+SRCS 		= ${PATHSRCS}str/ft_isalpha.c \
+			${PATHSRCS}str/ft_isdigit.c\
+			${PATHSRCS}str/ft_isalnum.c \
+			${PATHSRCS}str/ft_isascii.c \
+			${PATHSRCS}str/ft_isprint.c\
+			${PATHSRCS}str/ft_isspace.c \
+			${PATHSRCS}str/ft_toupper.c \
+			${PATHSRCS}str/ft_tolower.c \
+			${PATHSRCS}str/ft_strncmp.c \
+			${PATHSRCS}str/ft_strdup.c \
+			${PATHSRCS}str/ft_strchr.c \
+			${PATHSRCS}str/ft_strrchr.c \
+			${PATHSRCS}str/ft_strnstr.c \
+			${PATHSRCS}str/ft_substr.c \
+			${PATHSRCS}str/ft_strjoin.c \
+			${PATHSRCS}str/ft_strtrim.c \
+			${PATHSRCS}str/ft_split.c \
+			${PATHSRCS}str/ft_strmapi.c \
+			${PATHSRCS}str/ft_strlen.c \
+			${PATHSRCS}str/ft_strlcpy.c \
+			${PATHSRCS}str/ft_strlcat.c \
+			${PATHSRCS}str/ft_striteri.c \
+			${PATHSRCS}str/ft_putchar.c \
+			${PATHSRCS}str/ft_putstr.c \
+			${PATHSRCS}str/iswhitespace.c \
 			\
-			srcs/mem/ft_memcmp.c srcs/mem/ft_bzero.c srcs/mem/ft_memset.c \
-			srcs/mem/ft_memcpy.c srcs/mem/ft_memmove.c srcs/mem/ft_memchr.c \
-			srcs/mem/ft_calloc.c \
+			${PATHSRCS}mem/ft_memcmp.c \
+			${PATHSRCS}mem/ft_bzero.c \
+			${PATHSRCS}mem/ft_memset.c \
+			${PATHSRCS}mem/ft_memcpy.c \
+			${PATHSRCS}mem/ft_memmove.c \
+			${PATHSRCS}mem/ft_memchr.c \
+			${PATHSRCS}mem/ft_calloc.c \
 			\
-			srcs/file/ft_putchar_fd.c srcs/file/ft_putstr_fd.c \
-			srcs/file/ft_putendl_fd.c srcs/file/ft_putnbr_fd.c \
-			srcs/file/is_ext_correct.c srcs/file/get_next_line.c \
+			${PATHSRCS}file/ft_putchar_fd.c \
+			${PATHSRCS}file/ft_putstr_fd.c \
+			${PATHSRCS}file/ft_putendl_fd.c \
+			${PATHSRCS}file/ft_putnbr_fd.c \
+			${PATHSRCS}file/is_ext_correct.c \
+			${PATHSRCS}file/get_next_line.c \
 			\
-			srcs/lst/ft_lstsize.c srcs/lst/ft_lstadd_back.c \
-			srcs/lst/ft_lstadd_front.c srcs/lst/ft_lstiter.c \
-			srcs/lst/ft_lstdelone.c srcs/lst/ft_lstclear.c srcs/lst/ft_lstlast.c \
-			srcs/lst/ft_lstnew.c srcs/lst/ft_lstmap.c \
+			${PATHSRCS}lst/ft_lstsize.c \
+			${PATHSRCS}lst/ft_lstadd_back.c \
+			${PATHSRCS}lst/ft_lstadd_front.c \
+			${PATHSRCS}lst/ft_lstiter.c \
+			${PATHSRCS}lst/ft_lstdelone.c \
+			${PATHSRCS}lst/ft_lstclear.c \
+			${PATHSRCS}lst/ft_lstlast.c \
+			${PATHSRCS}lst/ft_lstnew.c \
+			${PATHSRCS}lst/ft_lstmap.c \
 			\
-			srcs/othr/ft_atoi.c srcs/othr/ft_itoa.c \
+			${PATHSRCS}int/ft_atoi_base.c \
+			${PATHSRCS}int/ft_atoi.c \
+			${PATHSRCS}int/ft_atoli.c \
+			${PATHSRCS}int/ft_itoa_base.c \
+			${PATHSRCS}int/ft_itoa.c \
+			${PATHSRCS}int/ft_putnbr.c \
 			\
-			srcs/ft_printf/ft_printf.c srcs/ft_printf/ft_printf_putnbr.c \
-			srcs/ft_printf/ft_printf_strstuff.c
+			${PATHSRCS}ft_printf/ft_printf.c \
+			${PATHSRCS}ft_printf/ft_printf_putnbr.c \
+			${PATHSRCS}ft_printf/ft_printf_strstuff.c
 
 OBJS		= ${SRCS:.c=.o}
 
-HEADERS		= headers/libft.h headers/ft_printf.h
+HEADERS		= ${PATHHEADERS}libft.h \
+			${PATHHEADERS}ft_printf.h
 
 CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
+INCS		= -I${PATHHEADERS}
 
 RM			= rm -rf
 
@@ -57,32 +108,38 @@ NORM		= norminette
 FLAGC		= -R CheckForbiddenSourceHeader
 FLAGH		= -R CheckDefine
 
-all:		strcompile ${NAME}
-
-strcompile:
-				@echo "${PREFIX} Compiling all ${GREEN}.c ${CYAN}to ${GREEN}.o ${CYAN}..."
+################################################################################
+# => RULES
+################################################################################
 
 .c.o:
-				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+				@echo "${BOLD}${YELLOW}Compiling:${END}\t$<"
+				@${CC} ${CFLAGS} ${INCS} -c $< -o ${<:.c=.o} >${PATHNULL}
+
+all:		${NAME}
 
 ${NAME}:	${OBJS}
-				@echo "${PREFIX} Making ${GREEN}${NAME} ${CYAN}library ..."
-				ar -rc ${NAME} ${OBJS}
+				@echo "${BOLD}${GREEN}Building:${END}\t${NAME}"
+				@ar -rc ${NAME} ${OBJS} >${PATHNULL}
 
 clean:
-				@echo "${PREFIX} Cleaning ${GREEN}Libft ${CYAN}..."
-				${RM} ${OBJS}
+				@echo "${BOLD}${RED}Removing:${END}\tAll .o files"
+				@${RM} ${OBJS} >${PATHNULL}
 
 fclean:		clean
-				@echo "${PREFIX} Removing ${GREEN}${NAME} ${CYAN}library ..."
-				${RM} ${NAME}
+				@echo "${BOLD}${RED}Removing:${END}\t${NAME}"
+				@${RM} ${NAME} >${PATHNULL}
 
 re:			fclean all
 
 norminette:
-				@echo "${PREFIX} Checking norminette for ${GREEN}.c ${CYAN}files ..."
+				@echo "${BOLD}${YELLOW}Norminette:${END}\tAll .c files"
 				${NORM} ${FLAGC} ${SRCS}
-				@echo "${PREFIX} Checking norminette for ${GREEN}.h ${CYAN}files ..."
+				@echo "${BOLD}${GREEN}Norminette:${END}\tOK !\n"
+				@echo "${BOLD}${YELLOW}Norminette:${END}\tAll .h files"
 				${NORM} ${FLAGH} ${HEADERS}
+				@echo "${BOLD}${GREEN}Norminette:${END}\tOK !"
 
 .PHONY:		all clean fclean re norminette
+
+################################################################################

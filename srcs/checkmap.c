@@ -6,11 +6,34 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 13:59:38 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/20 17:31:47 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/04/05 13:07:07 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/fdf.h"
+#include "../includes/fdf.h"
+
+static int	check_str(char *line, char **strs)
+{
+	int	i[2];
+
+	i[0] = 0;
+	while (strs[i[0]] != NULL)
+	{
+		i[1] = 0;
+		while (*strs[i[1]] != '\0')
+		{
+			if (!ft_isdigit(*strs[i[1]]) || !is_whitespace(*strs[i[1]]))
+			{
+				ft_freestrtab(strs, line);
+				return (ft_exit("A letter has been found in the map !", NULL,
+						NULL, EXIT_FAILURE));
+			}
+			i[1]++;
+		}
+		i[0]++;
+	}
+	return (0);
+}
 
 static void	ft_readmap(t_map *map, int fd, int x, int y)
 {
@@ -27,6 +50,7 @@ static void	ft_readmap(t_map *map, int fd, int x, int y)
 			break ;
 		}
 		x = 0;
+		check_str(line, temp_map);
 		while (temp_map[x] && temp_map[x][0] != '\n')
 			x++;
 		if (x > map->max_columns)

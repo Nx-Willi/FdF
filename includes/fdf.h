@@ -6,7 +6,7 @@
 /*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:41:09 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/20 17:28:13 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/04/05 12:26:01 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 # define ESC 65307
 
-# include "../libs/libft/headers/libft.h"
+# include "../libs/libft/includes/libft.h"
 # include "../libs/minilibx-linux/mlx.h"
 # include "fdf_structures.h"
 # include <unistd.h>

@@ -6,7 +6,7 @@
 #    By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/08 18:23:13 by wdebotte          #+#    #+#              #
-#    Updated: 2022/01/17 16:09:55 by wdebotte         ###   ########.fr        #
+#    Updated: 2022/04/05 13:07:38 by wdebotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME		= fdf
 SRCS		= srcs/fdf.c srcs/checkmap.c srcs/utils.c srcs/putimg.c srcs/hooks.c \
 			srcs/bresenham_drawlines.c
 
-HEADERS		= headers/fdf.h headers/fdf_structures.h
+HEADERS		= includes/fdf.h includes/fdf_structures.h
 
 OBJS		= ${SRCS:.c=.o}
 

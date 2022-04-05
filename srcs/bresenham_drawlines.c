@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/fdf.h"
+#include "../includes/fdf.h"
 
 /*
 dx & dy refers to the distance between the first x & y and the x & y dest.

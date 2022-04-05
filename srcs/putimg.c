@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/fdf.h"
+#include "../includes/fdf.h"
 
 static float	ft_iso_x(t_env *mlx, t_map *map, float x, float y)
 {

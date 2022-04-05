@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/fdf.h"
+#include "../includes/fdf.h"
 
 void	ft_freemap(t_point **tab, int max_lines)
 {

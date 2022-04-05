@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/fdf.h"
+#include "../includes/fdf.h"
 
 int	ft_close_window(t_env *mlx)
 {

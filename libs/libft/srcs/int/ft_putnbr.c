@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wdebotte <wdebotte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 12:31:36 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 18:44:36 by wdebotte         ###   ########.fr       */
+/*   Created: 2022/01/29 17:37:02 by wdebotte          #+#    #+#             */
+/*   Updated: 2022/02/07 15:47:58 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	ft_putnbr(int nbr)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	return (0);
+	long int	li_nbr;
+
+	li_nbr = nbr;
+	if (li_nbr < 0)
+	{
+		li_nbr = -li_nbr;
+		ft_putchar('-');
+	}
+	if (li_nbr >= 10)
+	{
+		ft_putnbr(li_nbr / 10);
+		ft_putchar(li_nbr % 10 + 48);
+	}
+	else
+		ft_putchar(li_nbr + 48);
 }

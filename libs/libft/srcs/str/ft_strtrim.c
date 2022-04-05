@@ -6,11 +6,11 @@
 /*   By: wdebotte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 14:10:28 by wdebotte          #+#    #+#             */
-/*   Updated: 2022/01/08 18:48:09 by wdebotte         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:19:54 by wdebotte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/libft.h"
+#include "libft.h"
 
 static int	ft_is_charset(char c, char const *charset)
 {
