@@ -21,7 +21,3 @@ The scale refers to the number of pixels between two points (if not specified an
 ## Help
 
 The [42Docs](https://harm-smits.github.io/42docs/libs/minilibx.html "42Docs") by https://github.com/harm-smits
-
-## Score
-
-[![wdebotte's 42 FdF Score](https://badge42.vercel.app/api/v2/cl2zu1sil002509mf9zd91hy6/project/2451229)](https://github.com/JaeSeoKim/badge42)
